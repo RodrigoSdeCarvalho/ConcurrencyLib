@@ -2,8 +2,8 @@
 #include <ucontext.h>
 #include <stdio.h>
 
-#include "system.h"
-#include "thread.h"
+#include "Concurrency/system.h"
+#include "Concurrency/thread.h"
 
 __BEGIN_API
 

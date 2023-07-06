@@ -129,29 +129,149 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-main.o: main.cpp.o
+main.o: main.cc.o
 .PHONY : main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+main.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cc.o
+.PHONY : main.cc.o
 
-main.i: main.cpp.i
+main.i: main.cc.i
 .PHONY : main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+main.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cc.i
+.PHONY : main.cc.i
 
-main.s: main.cpp.s
+main.s: main.cc.s
 .PHONY : main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+main.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cc.s
+.PHONY : main.cc.s
+
+source/cpu.o: source/cpu.cc.o
+.PHONY : source/cpu.o
+
+# target to build an object file
+source/cpu.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/cpu.cc.o
+.PHONY : source/cpu.cc.o
+
+source/cpu.i: source/cpu.cc.i
+.PHONY : source/cpu.i
+
+# target to preprocess a source file
+source/cpu.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/cpu.cc.i
+.PHONY : source/cpu.cc.i
+
+source/cpu.s: source/cpu.cc.s
+.PHONY : source/cpu.s
+
+# target to generate assembly for a file
+source/cpu.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/cpu.cc.s
+.PHONY : source/cpu.cc.s
+
+source/debug.o: source/debug.cc.o
+.PHONY : source/debug.o
+
+# target to build an object file
+source/debug.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/debug.cc.o
+.PHONY : source/debug.cc.o
+
+source/debug.i: source/debug.cc.i
+.PHONY : source/debug.i
+
+# target to preprocess a source file
+source/debug.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/debug.cc.i
+.PHONY : source/debug.cc.i
+
+source/debug.s: source/debug.cc.s
+.PHONY : source/debug.s
+
+# target to generate assembly for a file
+source/debug.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/debug.cc.s
+.PHONY : source/debug.cc.s
+
+source/semaphore.o: source/semaphore.cc.o
+.PHONY : source/semaphore.o
+
+# target to build an object file
+source/semaphore.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/semaphore.cc.o
+.PHONY : source/semaphore.cc.o
+
+source/semaphore.i: source/semaphore.cc.i
+.PHONY : source/semaphore.i
+
+# target to preprocess a source file
+source/semaphore.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/semaphore.cc.i
+.PHONY : source/semaphore.cc.i
+
+source/semaphore.s: source/semaphore.cc.s
+.PHONY : source/semaphore.s
+
+# target to generate assembly for a file
+source/semaphore.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/semaphore.cc.s
+.PHONY : source/semaphore.cc.s
+
+source/system.o: source/system.cc.o
+.PHONY : source/system.o
+
+# target to build an object file
+source/system.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/system.cc.o
+.PHONY : source/system.cc.o
+
+source/system.i: source/system.cc.i
+.PHONY : source/system.i
+
+# target to preprocess a source file
+source/system.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/system.cc.i
+.PHONY : source/system.cc.i
+
+source/system.s: source/system.cc.s
+.PHONY : source/system.s
+
+# target to generate assembly for a file
+source/system.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/system.cc.s
+.PHONY : source/system.cc.s
+
+source/thread.o: source/thread.cc.o
+.PHONY : source/thread.o
+
+# target to build an object file
+source/thread.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/thread.cc.o
+.PHONY : source/thread.cc.o
+
+source/thread.i: source/thread.cc.i
+.PHONY : source/thread.i
+
+# target to preprocess a source file
+source/thread.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/thread.cc.i
+.PHONY : source/thread.cc.i
+
+source/thread.s: source/thread.cc.s
+.PHONY : source/thread.s
+
+# target to generate assembly for a file
+source/thread.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/thread.cc.s
+.PHONY : source/thread.cc.s
 
 # Help Target
 help:
@@ -165,6 +285,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... source/cpu.o"
+	@echo "... source/cpu.i"
+	@echo "... source/cpu.s"
+	@echo "... source/debug.o"
+	@echo "... source/debug.i"
+	@echo "... source/debug.s"
+	@echo "... source/semaphore.o"
+	@echo "... source/semaphore.i"
+	@echo "... source/semaphore.s"
+	@echo "... source/system.o"
+	@echo "... source/system.i"
+	@echo "... source/system.s"
+	@echo "... source/thread.o"
+	@echo "... source/thread.i"
+	@echo "... source/thread.s"
 .PHONY : help
 
 

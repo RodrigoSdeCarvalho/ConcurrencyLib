@@ -4,14 +4,14 @@
 #include <chrono>
 #include <ctime>
 
-#include "thread.h"
+#include "Concurrency/thread.h"
 
 __BEGIN_API
 
 using namespace std;
 
 int Thread::_available_id = -1; // Se o valor for -1, significa que ainda não foi criada nenhuma thread.
-                                // Primeira thread criada terá id 0.
+// Primeira thread criada terá id 0.
 
 int Thread::_numOfThreads = 0;
 
@@ -101,7 +101,7 @@ void Thread::dispatcher()
         Thread::switch_context(&_dispatcher, nextThreadToRun);
 
         // Ao voltar ao despachante, verifica se a próxima thread a ser executada (que está no começo da fila)
-        // terminou sua execução. Se sim, a removerá da fila de prontos. 
+        // terminou sua execução. Se sim, a removerá da fila de prontos.
         check_if_next_thread_is_finished();
     }
 
@@ -180,18 +180,16 @@ int Thread::join()
 
 void Thread::resume()
 {
-    db<Thread>(TRC) << "Thread::resume() CHAMADO.";
-    if (_state == SUSPEND)
+    if (this->_state == SUSPEND)
     {
-        _state = READY;
         _suspended.remove(&_link);
+        this->_state = READY;
         _ready.insert(&_link);
     }
 }
 
 void Thread::suspend()
 {
-    db<Thread>(TRC) << "Thread::suspend() CHAMADO.";
     // Seta o estado da thread como SUSPEND.
     _state = SUSPEND;
 
@@ -207,8 +205,16 @@ void Thread::suspend()
     }
 }
 
-void Thread::sleep()
+void Thread::sleep(Asleep_Queue* sleepQueue)
 {
+    if (!_asleep)
+    {
+        _asleep = sleepQueue;
+    }
+
+    sleepQueue->insert(&_link);
+
+    db<Thread>(TRC) << "Thread::sleep() CHAMADO.\n";
     _state = WAITING;
     if (_running != this)
     {
@@ -220,12 +226,15 @@ void Thread::sleep()
     }
 }
 
-void Thread::wakeup()
+void Thread::wakeup(bool reschedule)
 {
+    db<Thread>(TRC) << "Thread::wakeup() CHAMADO.\n";
     _state = READY;
     _link.rank(get_now_timestamp());
     _ready.insert(&_link);
-    yield();
+
+    if (reschedule)
+        yield();
 }
 
 void Thread::thread_exit(int exit_code)
@@ -240,15 +249,20 @@ void Thread::thread_exit(int exit_code)
     if (_waiting)
     {
         _waiting->resume();
+        _waiting = nullptr;
     }
-    
+
     yield(); // Libera o processador para outra thread(DISPACHER).
 }
 
 Thread::~Thread()
 {
-    _ready.remove(&this->_link); // Remove a thread da fila de prontos.
+    if (_asleep)
+    {
+        _asleep->remove(&_link);
+    }
 
+    _ready.remove(&this->_link); // Remove a thread da fila de prontos.
     if (this->_context) // Libera o contexto, caso ele exista.
     {
         delete this->_context;
